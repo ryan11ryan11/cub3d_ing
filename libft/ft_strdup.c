@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: junhhong <junhhong@student.42wolfsburg.    +#+  +:+       +#+        */
+/*   By: junhhong <junhhong@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 14:25:13 by junhhong          #+#    #+#             */
-/*   Updated: 2023/11/27 10:53:40 by junhhong         ###   ########.fr       */
+/*   Updated: 2024/11/27 11:46:49 by junhhong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ char	*ft_strdup(const char *s)
 	int		len_s;
 	char	*arr;
 
+	if (s == NULL)
+		return (NULL);
 	len_s = ft_strlen((char *)s);
 	arr = (char *)malloc((len_s + 1) * sizeof(char));
 	if (!arr)

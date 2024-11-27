@@ -6,7 +6,7 @@
 /*   By: junhhong <junhhong@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 15:15:01 by junhhong          #+#    #+#             */
-/*   Updated: 2024/11/26 17:29:32 by junhhong         ###   ########.fr       */
+/*   Updated: 2024/11/27 15:33:32 by junhhong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ typedef struct s_info
 {
 	int		fd;
 	int		num_lines;
+	int		num_map_lines;
 	char	*path;
 	char	**whole_file;
 	char	**map;
@@ -47,7 +48,25 @@ int		set_whole_file(t_info *info);
 char	*remove_linechange(char *line);
 char	*return_value(t_info *info, char *target);
 int		set_value(t_info *info);
+int		set_map(t_info *info);
+void	set_all_NULL(t_info *info);
 
+
+/*cubfile_check*/
+int components_counter(t_info *info, char *target);
+int duplicate_check(t_info *info);
+int cubfile_check(t_info *info);
+
+/*validity_check_1*/
+int	extension_check(const char *path);
+int	is_news(char *line);
+int	only_news(t_info *info);
+int	validity_check(t_info *info);
+
+/*validity_check_block*/
+int is_blocked(t_info *info);
+int	top_bottom_check(t_info *info);
+int	all_1_space(char *line);
 
 /* to be deleted befor submit */
 void print_status(t_info *info);

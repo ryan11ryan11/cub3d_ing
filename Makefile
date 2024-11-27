@@ -6,18 +6,18 @@
 #    By: junhhong <junhhong@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/25 11:16:19 by junhhong          #+#    #+#              #
-#    Updated: 2024/11/26 15:58:50 by junhhong         ###   ########.fr        #
+#    Updated: 2024/11/27 15:21:24 by junhhong         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC = cc
-CFLAGS = -Wall -Wextra -Werror -g #-fsanitize=address
+CFLAGS = -Wall -Wextra -Werror -g -fsanitize=address
 LIBDIR = libft
 LIBFT = libft/libft.a -L minilibx-linux -lmlx_Linux -lX11 -lXext
 NAME = cub3d
 AR = ar -rcs
 
-SRC = cub3d ./get_next_line/get_next_line utils tester set_info_1 set_info_2
+SRC = cub3d ./get_next_line/get_next_line utils tester set_info_1 set_info_2 cubfile_check set_map validity_check_1 validity_check_block
 
 all : $(NAME)
 

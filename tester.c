@@ -6,7 +6,7 @@
 /*   By: junhhong <junhhong@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/26 15:32:48 by junhhong          #+#    #+#             */
-/*   Updated: 2024/11/26 17:32:49 by junhhong         ###   ########.fr       */
+/*   Updated: 2024/11/27 14:28:29 by junhhong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,5 +29,15 @@ void print_status(t_info *info)
 	printf("info->EA::%s\n",info->EA);
 	printf("info->F::%s\n",info->F);
 	printf("info->C::%s\n",info->C);
+	printf("info->path::%s\n",info->path);
+	printf("info->num_lines::%d\n",info->num_lines);
+
+	printf("\nmap\n");
+	int k = 0;
+	while (info->map[k])
+	{
+		printf("%s\n",info->map[k]);
+		k ++;
+	}
 	printf("************************************************************\n");
 }

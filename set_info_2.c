@@ -6,7 +6,7 @@
 /*   By: junhhong <junhhong@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/26 15:52:35 by junhhong          #+#    #+#             */
-/*   Updated: 2024/11/26 17:35:24 by junhhong         ###   ########.fr       */
+/*   Updated: 2024/11/27 15:16:48 by junhhong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,9 @@ char	*remove_linechange(char *line)
 	int		i;
 	char	*result;
 
-	result = (char *)malloc(sizeof(char) * ft_strlen(line));
+	result = (char *)malloc(sizeof(char) * (ft_strlen(line) + 1));
 	i = 0;
-	while (line[i] != '\n' && line[i] != '\0')
+	while (line[i] && line[i] != '\n' && line[i] != '\0')
 	{
 		result[i] = line[i];
 		i ++;
@@ -36,8 +36,18 @@ char	*return_value(t_info *info, char *target)
 
 	double_arr = info->whole_file;
 	len = ft_strlen(target);
-	while (ft_strncmp(*double_arr, target, len) != 0)
-		double_arr ++;
+	while (*double_arr != NULL)
+	{
+		if (ft_strncmp(*double_arr, target, len) == 0)
+			break;
+		double_arr++;
+	}
+	if (*double_arr == NULL)
+	{
+		ft_putstr_fd(target, 2);
+		ft_putstr_fd(" Does not exist\n", 2);
+		return (NULL);
+	}
 	value = *double_arr;
 	value = value + len;
 	while (*value == ' ')
@@ -45,17 +55,38 @@ char	*return_value(t_info *info, char *target)
 	return (value);
 }
 
+void	set_all_NULL(t_info *info)
+{
+	info->num_lines = 0;
+	info->num_map_lines = 0;
+	info->path = NULL;
+	info->map = NULL;
+	info->whole_file = NULL;
+	info->NO = NULL;
+	info->SO = NULL;
+	info->WE = NULL;
+	info->EA = NULL;
+	info->F = NULL;
+	info->C = NULL;
+}
+
 int	set_value(t_info *info)
 {
-	info->NO = ft_strdup(return_value(info, "NO"));
-	info->SO = ft_strdup(return_value(info, "SO"));
-	info->WE = ft_strdup(return_value(info, "WE"));
-	info->EA = ft_strdup(return_value(info, "EA"));
-	info->F = ft_strdup(return_value(info, "F"));
-	info->C = ft_strdup(return_value(info, "C"));
+	if (return_value(info, "NO"))
+		info->NO = ft_strdup(return_value(info, "NO"));
+	if (return_value(info, "SO"))
+		info->SO = ft_strdup(return_value(info, "SO"));
+	if (return_value(info, "WE"))
+		info->WE = ft_strdup(return_value(info, "WE"));
+	if (return_value(info, "EA"))
+		info->EA = ft_strdup(return_value(info, "EA"));
+	if (return_value(info, "F"))
+		info->F = ft_strdup(return_value(info, "F"));
+	if (return_value(info, "C"))
+		info->C = ft_strdup(return_value(info, "C"));
 	if (!info->NO || !info->SO || !info->WE || !info->EA || !info->F || !info->C)
 	{
-		ft_putendl_fd("Missing info. check cupfile and please do not harras ", 2);
+		ft_putendl_fd("Missing info. check cubfile. please do not harass my program", 2);
 		return (1);
 	}
 	return (0);

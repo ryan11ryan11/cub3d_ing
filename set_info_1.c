@@ -6,7 +6,7 @@
 /*   By: junhhong <junhhong@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/26 15:48:42 by junhhong          #+#    #+#             */
-/*   Updated: 2024/11/26 17:33:20 by junhhong         ###   ########.fr       */
+/*   Updated: 2024/11/27 16:12:02 by junhhong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 int	set_info(t_info *info, char *path)
 {
+	set_all_NULL(info);
 	if (set_path(info, path))
 		return (1);
 	if (set_fd(info))
@@ -21,6 +22,8 @@ int	set_info(t_info *info, char *path)
 	if (set_num_lines(info))
 		return (1);
 	if (set_whole_file(info))
+		return (1);
+	if (cubfile_check(info))
 		return (1);
 	if (set_value(info))
 		return (1);
@@ -56,15 +59,14 @@ int	set_num_lines(t_info *info)
 
 	i = 0;
 	fd = open(info->path, O_RDONLY);
-	if (fd == -1)
-	{
-		free_all(info);
-		perror("Error on line 148\n");
-		return (1);
-	}
 	line = get_next_line(fd);
-	while(line)
+	while (line)
 	{
+		while (line != NULL && strcmp(line, "\n") == 0)
+		{
+			free(line);
+			line = get_next_line(fd);
+		}
 		free(line);
 		line = get_next_line(fd);
 		i ++;
@@ -83,14 +85,14 @@ int	set_whole_file(t_info *info)
 	line = get_next_line(info->fd);
 	while(line != NULL)
 	{
-		info->whole_file[i] = remove_linechange(line);
-		if (!info->whole_file[i])
+		while (line != NULL && strcmp(line, "\n") == 0)
 		{
-			perror("Error occurs during whole_file making");
 			free (line);
-			doublearr_free (info->whole_file);
-			return (1);
+			line = get_next_line(info->fd);
 		}
+		if (line == NULL)
+			break ;
+		info->whole_file[i] = remove_linechange(line);
 		i ++;
 		free (line);
 		line = get_next_line(info->fd);
