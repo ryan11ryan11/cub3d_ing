@@ -6,7 +6,7 @@
 /*   By: junhhong <junhhong@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/26 15:48:42 by junhhong          #+#    #+#             */
-/*   Updated: 2024/11/27 16:12:02 by junhhong         ###   ########.fr       */
+/*   Updated: 2024/11/27 16:45:10 by junhhong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,8 @@ int	set_num_lines(t_info *info)
 
 	i = 0;
 	fd = open(info->path, O_RDONLY);
+	if (fd == -1)
+		return (1);
 	line = get_next_line(fd);
 	while (line)
 	{
@@ -67,6 +69,8 @@ int	set_num_lines(t_info *info)
 			free(line);
 			line = get_next_line(fd);
 		}
+		if (!line)
+			break ;
 		free(line);
 		line = get_next_line(fd);
 		i ++;

@@ -6,7 +6,7 @@
 /*   By: junhhong <junhhong@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/27 12:35:50 by junhhong          #+#    #+#             */
-/*   Updated: 2024/11/27 16:12:36 by junhhong         ###   ########.fr       */
+/*   Updated: 2024/11/27 16:26:59 by junhhong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,23 @@ int map_line_count(char **tmp_file)
 	return (num_lines);
 }
 
+int	is_component(char *line)
+{
+	if (strncmp(line, "NO", 2) == 0)
+		return (0);
+	if (strncmp(line, "SO", 2) == 0)
+		return (0);
+	if (strncmp(line, "WE", 2) == 0)
+		return (0);
+	if (strncmp(line, "EA", 2) == 0)
+		return (0);
+	if (strncmp(line, "F", 1) == 0)
+		return (0);
+	if (strncmp(line, "C", 1) == 0)
+		return (0);
+	return (1);
+}
+
 int	set_map(t_info *info)
 {
 	char	**tmp_file;
@@ -34,9 +51,9 @@ int	set_map(t_info *info)
 	int		i;
 
 	i = 0;
-	tmp_file = info->whole_file;
-	while (*tmp_file[0] != 'C')
-		tmp_file ++;
+	tmp_file = info->whole_file + info->num_lines - 1;
+	while (is_component(*tmp_file))
+		tmp_file --;
 	tmp_file ++;
 	num_lines = map_line_count(tmp_file);
 	info->num_map_lines = num_lines;
