@@ -6,7 +6,7 @@
 /*   By: junhhong <junhhong@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 15:15:01 by junhhong          #+#    #+#             */
-/*   Updated: 2024/11/27 15:33:32 by junhhong         ###   ########.fr       */
+/*   Updated: 2024/11/29 13:26:31 by junhhong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,20 @@
 #include <sys/stat.h>
 #include <unistd.h>
 #include <stdio.h>
+#include "./minilibx-linux/mlx.h"
 #include "./libft/libft.h"
 #include "./get_next_line/get_next_line.h"
+
+#define KEY_ESC		65307
+#define	KEY_PRESS	2
+#define	KEY_W		119
+#define	KEY_S		115
+#define	KEY_A		97
+#define	KEY_D		100
+#define	KEY_LEFT	65361
+#define KEY_RIGHT	65363
+#define	X_CLICK		17
+
 
 typedef struct s_info
 {
@@ -32,6 +44,8 @@ typedef struct s_info
 	char	*EA;
 	char	*F;
 	char	*C;
+	void	*mlx;
+	void	*win;
 } t_info;
 
 void	doublearr_free(char **double_arr);
@@ -48,9 +62,13 @@ int		set_whole_file(t_info *info);
 char	*remove_linechange(char *line);
 char	*return_value(t_info *info, char *target);
 int		set_value(t_info *info);
-int		set_map(t_info *info);
 void	set_all_NULL(t_info *info);
+int		set_mlx(t_info *info);
 
+/*set_map*/
+int		set_map(t_info *info);
+int		map_line_count(char **tmp_file);
+int		is_component(char *line);
 
 /*cubfile_check*/
 int components_counter(t_info *info, char *target);

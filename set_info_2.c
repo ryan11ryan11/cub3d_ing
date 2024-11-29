@@ -6,7 +6,7 @@
 /*   By: junhhong <junhhong@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/26 15:52:35 by junhhong          #+#    #+#             */
-/*   Updated: 2024/11/27 15:16:48 by junhhong         ###   ########.fr       */
+/*   Updated: 2024/11/29 12:54:20 by junhhong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,6 +87,23 @@ int	set_value(t_info *info)
 	if (!info->NO || !info->SO || !info->WE || !info->EA || !info->F || !info->C)
 	{
 		ft_putendl_fd("Missing info. check cubfile. please do not harass my program", 2);
+		return (1);
+	}
+	return (0);
+}
+
+int	set_mlx(t_info *info)
+{
+	info->mlx = mlx_init();
+	if (!info->mlx)
+	{
+		ft_putstr_fd("mlx_init failed\n", 2);
+		return (1);
+	}
+	info->win = mlx_new_window(info->mlx, 1000, 1000, "mlx_project");
+	if (!info->win)
+	{
+		ft_putstr_fd("mlx_new_window failed\n", 2);
 		return (1);
 	}
 	return (0);

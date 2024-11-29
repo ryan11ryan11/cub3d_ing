@@ -6,7 +6,7 @@
 /*   By: junhhong <junhhong@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/26 15:48:42 by junhhong          #+#    #+#             */
-/*   Updated: 2024/11/27 16:45:10 by junhhong         ###   ########.fr       */
+/*   Updated: 2024/11/29 13:00:56 by junhhong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,8 @@ int	set_info(t_info *info, char *path)
 	if (set_value(info))
 		return (1);
 	if (set_map(info))
+		return (1);
+	if (set_mlx(info))
 		return (1);
 	return (0);
 }
