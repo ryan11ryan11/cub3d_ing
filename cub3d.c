@@ -6,7 +6,7 @@
 /*   By: junhhong <junhhong@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 15:13:06 by junhhong          #+#    #+#             */
-/*   Updated: 2024/12/19 14:04:17 by junhhong         ###   ########.fr       */
+/*   Updated: 2024/12/19 14:06:31 by junhhong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,6 @@
 
 int	finish_program(t_info *info)
 {
-	if (info->win)
-		mlx_destroy_window(info->mlx, info->win);
 	free_all(info);
 	exit (0);
 }
