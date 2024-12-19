@@ -6,7 +6,7 @@
 /*   By: junhhong <junhhong@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/26 14:53:11 by junhhong          #+#    #+#             */
-/*   Updated: 2024/11/27 15:00:47 by junhhong         ###   ########.fr       */
+/*   Updated: 2024/12/19 14:01:51 by junhhong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,10 @@ void	doublearr_free(char **double_arr)
 void	free_all(t_info *info)
 {
 	close(info->fd);
+	if (info->win)
+		mlx_destroy_window(info->mlx, info->win);
+	if (info->mlx)
+		free(info->mlx);
 	if (info->whole_file != NULL)
 		doublearr_free(info->whole_file);
 	if (info->NO != NULL)

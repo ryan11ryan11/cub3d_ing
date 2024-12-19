@@ -6,7 +6,7 @@
 /*   By: junhhong <junhhong@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/26 15:52:35 by junhhong          #+#    #+#             */
-/*   Updated: 2024/11/29 12:54:20 by junhhong         ###   ########.fr       */
+/*   Updated: 2024/12/19 13:59:27 by junhhong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,6 +104,7 @@ int	set_mlx(t_info *info)
 	if (!info->win)
 	{
 		ft_putstr_fd("mlx_new_window failed\n", 2);
+		free(info->mlx);
 		return (1);
 	}
 	return (0);

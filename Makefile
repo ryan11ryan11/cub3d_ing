@@ -6,12 +6,12 @@
 #    By: junhhong <junhhong@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/25 11:16:19 by junhhong          #+#    #+#              #
-#    Updated: 2024/11/29 13:29:37 by junhhong         ###   ########.fr        #
+#    Updated: 2024/12/19 13:45:38 by junhhong         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC = cc
-CFLAGS = -Wall -Wextra -Werror -g #-fsanitize=address
+CFLAGS = -Wall -Wextra -Werror -g -fsanitize=address
 LIBDIR = libft
 LIBFT = libft/libft.a -L minilibx-linux -lmlx_Linux -lX11 -lXext
 NAME = cub3d

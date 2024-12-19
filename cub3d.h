@@ -6,7 +6,7 @@
 /*   By: junhhong <junhhong@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 15:15:01 by junhhong          #+#    #+#             */
-/*   Updated: 2024/11/29 13:26:31 by junhhong         ###   ########.fr       */
+/*   Updated: 2024/12/19 13:44:32 by junhhong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ typedef struct s_info
 	int		fd;
 	int		num_lines;
 	int		num_map_lines;
+	int		number_news;
 	char	*path;
 	char	**whole_file;
 	char	**map;
@@ -78,7 +79,7 @@ int cubfile_check(t_info *info);
 /*validity_check_1*/
 int	extension_check(const char *path);
 int	is_news(char *line);
-int	only_news(t_info *info);
+int	news_check(t_info *info);
 int	validity_check(t_info *info);
 
 /*validity_check_block*/
