@@ -6,7 +6,7 @@
 /*   By: junhhong <junhhong@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/26 15:52:35 by junhhong          #+#    #+#             */
-/*   Updated: 2024/12/19 13:59:27 by junhhong         ###   ########.fr       */
+/*   Updated: 2024/12/19 17:36:18 by junhhong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,8 @@ void	set_all_NULL(t_info *info)
 	info->EA = NULL;
 	info->F = NULL;
 	info->C = NULL;
+	info->pos_x = -1;
+	info->pos_y = -1;
 }
 
 int	set_value(t_info *info)

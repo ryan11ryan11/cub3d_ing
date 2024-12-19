@@ -6,7 +6,7 @@
 /*   By: junhhong <junhhong@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 15:15:01 by junhhong          #+#    #+#             */
-/*   Updated: 2024/12/19 13:44:32 by junhhong         ###   ########.fr       */
+/*   Updated: 2024/12/19 17:38:46 by junhhong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,8 @@ typedef struct s_info
 	int		num_lines;
 	int		num_map_lines;
 	int		number_news;
+	int		pos_x;
+	int		pos_y;
 	char	*path;
 	char	**whole_file;
 	char	**map;
@@ -65,6 +67,9 @@ char	*return_value(t_info *info, char *target);
 int		set_value(t_info *info);
 void	set_all_NULL(t_info *info);
 int		set_mlx(t_info *info);
+
+/*set_info3*/
+int		set_pos(t_info *info);
 
 /*set_map*/
 int		set_map(t_info *info);

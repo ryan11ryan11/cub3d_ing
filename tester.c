@@ -6,7 +6,7 @@
 /*   By: junhhong <junhhong@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/26 15:32:48 by junhhong          #+#    #+#             */
-/*   Updated: 2024/11/27 14:28:29 by junhhong         ###   ########.fr       */
+/*   Updated: 2024/12/19 18:05:15 by junhhong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,9 @@ void print_status(t_info *info)
 	printf("info->C::%s\n",info->C);
 	printf("info->path::%s\n",info->path);
 	printf("info->num_lines::%d\n",info->num_lines);
+	printf("info->pos_x %d\n", info->pos_x);
+	printf("info->pos_y %d\n", info->pos_y);
+	printf("info->num_map_line %d\n", info->num_map_lines);
 
 	printf("\nmap\n");
 	int k = 0;
