@@ -6,7 +6,7 @@
 /*   By: junhhong <junhhong@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/26 15:32:48 by junhhong          #+#    #+#             */
-/*   Updated: 2024/12/19 18:05:15 by junhhong         ###   ########.fr       */
+/*   Updated: 2024/12/20 16:50:39 by junhhong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,11 @@ void print_status(t_info *info)
 	printf("info->pos_x %d\n", info->pos_x);
 	printf("info->pos_y %d\n", info->pos_y);
 	printf("info->num_map_line %d\n", info->num_map_lines);
-
+	printf("info->direction %s\n", info->direction);
+	printf("info->dir_x %d\n",info->dir_x);
+	printf("info->dir_y %d\n",info->dir_y);
+	printf("info->plane_x %f\n",info->plane_x);
+	printf("info->plane_y %f\n",info->plane_y);
 	printf("\nmap\n");
 	int k = 0;
 	while (info->map[k])

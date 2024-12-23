@@ -6,7 +6,7 @@
 /*   By: junhhong <junhhong@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/26 15:52:35 by junhhong          #+#    #+#             */
-/*   Updated: 2024/12/19 17:36:18 by junhhong         ###   ########.fr       */
+/*   Updated: 2024/12/20 16:47:22 by junhhong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,8 +57,17 @@ char	*return_value(t_info *info, char *target)
 
 void	set_all_NULL(t_info *info)
 {
+	info->mlx = NULL;
+	info->win = NULL;
+	info->dir_x = -1;
+	info->dir_y = -1;
+	info->plane_x = -1;
+	info->plane_y = -1;
+	info->whole_file = NULL;
+	info->fd = 0;
 	info->num_lines = 0;
 	info->num_map_lines = 0;
+	info->number_news = 0;
 	info->path = NULL;
 	info->map = NULL;
 	info->whole_file = NULL;
@@ -68,6 +77,8 @@ void	set_all_NULL(t_info *info)
 	info->EA = NULL;
 	info->F = NULL;
 	info->C = NULL;
+	info->direction[0] = '\0';
+	info->direction[1] = '\0';
 	info->pos_x = -1;
 	info->pos_y = -1;
 }

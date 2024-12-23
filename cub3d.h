@@ -6,7 +6,7 @@
 /*   By: junhhong <junhhong@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 15:15:01 by junhhong          #+#    #+#             */
-/*   Updated: 2024/12/19 17:38:46 by junhhong         ###   ########.fr       */
+/*   Updated: 2024/12/20 16:49:22 by junhhong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,11 @@ typedef struct s_info
 	int		number_news;
 	int		pos_x;
 	int		pos_y;
+	int		dir_x;
+	int		dir_y;
+	double		plane_x;
+	double		plane_y;
+	char	direction[2];
 	char	*path;
 	char	**whole_file;
 	char	**map;
@@ -70,6 +75,10 @@ int		set_mlx(t_info *info);
 
 /*set_info3*/
 int		set_pos(t_info *info);
+void	set_dir_xy(t_info *info, int dir_x, int dir_y);
+int		set_dir(t_info *info);
+void	set_plane_xy(t_info *info, double x, double y);
+int		set_plane(t_info *info);
 
 /*set_map*/
 int		set_map(t_info *info);
