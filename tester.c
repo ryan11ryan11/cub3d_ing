@@ -31,12 +31,12 @@ void print_status(t_info *info)
 	printf("info->C::%s\n",info->C);
 	printf("info->path::%s\n",info->path);
 	printf("info->num_lines::%d\n",info->num_lines);
-	printf("info->pos_x %d\n", info->pos_x);
-	printf("info->pos_y %d\n", info->pos_y);
+	printf("info->pos_x %f\n", info->pos_x);
+	printf("info->pos_y %f\n", info->pos_y);
 	printf("info->num_map_line %d\n", info->num_map_lines);
 	printf("info->direction %s\n", info->direction);
-	printf("info->dir_x %d\n",info->dir_x);
-	printf("info->dir_y %d\n",info->dir_y);
+	printf("info->dir_x %f\n",info->dir_x);
+	printf("info->dir_y %f\n",info->dir_y);
 	printf("info->plane_x %f\n",info->plane_x);
 	printf("info->plane_y %f\n",info->plane_y);
 	printf("\nmap\n");

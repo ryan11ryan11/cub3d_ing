@@ -36,10 +36,10 @@ typedef struct s_info
 	int		num_lines;
 	int		num_map_lines;
 	int		number_news;
-	int		pos_x;
-	int		pos_y;
-	int		dir_x;
-	int		dir_y;
+	float		pos_x;
+	float		pos_y;
+	float		dir_x;
+	float		dir_y;
 	double		plane_x;
 	double		plane_y;
 	char	direction[2];
